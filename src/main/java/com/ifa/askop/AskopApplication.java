@@ -9,5 +9,7 @@ public class AskopApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AskopApplication.class, args);
 	}
+	// deneme
+	// deneme2
 
 }
