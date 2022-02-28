@@ -16,7 +16,7 @@ import java.util.List;
 public class Parent implements IEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String p1Name;

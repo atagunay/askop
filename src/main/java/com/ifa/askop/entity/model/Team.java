@@ -15,22 +15,21 @@ import java.util.List;
 public class Team implements IEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "sports_hall_id", nullable = false)
-    SportsHall sportsHall;
+    private SportsHall sportsHall;
 
-    //     @JoinTable(name = "player_team", joinColumns = @JoinColumn(name="player_id"))
     @ManyToMany(mappedBy = "teams",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Player> players;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "branch_id")
-    Branch branch;
+    private Branch branch;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(mappedBy = "team",fetch = FetchType.LAZY)
     private List<Assignment> assignments;
 }

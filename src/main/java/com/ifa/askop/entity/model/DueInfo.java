@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class DueInfo implements IEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private LocalDateTime date;

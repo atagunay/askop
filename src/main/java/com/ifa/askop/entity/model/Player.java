@@ -17,13 +17,13 @@ import java.util.List;
 public class Player implements IEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
     private String surname;
     private LocalDateTime dob;
-    private String identificationNumber;
+    private String nationalityId;
     private String bloodGroup;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

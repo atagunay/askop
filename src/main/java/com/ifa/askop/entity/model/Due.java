@@ -17,7 +17,7 @@ import java.util.List;
 public class Due implements IEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int fee;
     private LocalDateTime startDate;
