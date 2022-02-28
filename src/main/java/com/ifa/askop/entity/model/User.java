@@ -1,35 +1,58 @@
 package com.ifa.askop.entity.model;
 
-import com.ifa.askop.core.entity.Role;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ifa.askop.core.entity.UserBase;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Entity
-@Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "users")
+@PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "id")
 public class User extends UserBase {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
+    @NotNull
+    @NotBlank
+    @Min(2)
     private String name;
-    private String surName;
+
+    @NotNull
+    @NotBlank
+    @Min(2)
+    private String surname;
+
+    @NotNull
+    @NotBlank
     private String bloodGroup;
+
+    @NotNull
+    @NotBlank
     private String phoneNumber;
+
+    @NotNull
+    @NotBlank
     private String closeFriendPhoneNumber;
+
+
+    @NotBlank
+    @NotNull
+    private String gender;
+
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDateTime dob;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Role> roles;
 
 }

@@ -1,11 +1,14 @@
 package com.ifa.askop.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ifa.askop.entity.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -16,11 +19,11 @@ import java.util.List;
 public class Role implements IEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
+    @NotBlank
+    @Column(unique = true)
     private String name;
-
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
-    private List<User> users;
 }

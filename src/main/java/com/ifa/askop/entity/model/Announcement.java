@@ -18,13 +18,13 @@ import java.util.List;
 public class Announcement implements IEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String context;
+    private String content;
     private String fromUser;
     private LocalDateTime date;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "announcements",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<SportsHall> sportsHalls;
 }

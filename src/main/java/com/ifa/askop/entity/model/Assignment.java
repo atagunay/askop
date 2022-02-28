@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class Assignment implements IEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private LocalDateTime date;

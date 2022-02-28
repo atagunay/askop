@@ -16,7 +16,7 @@ import java.util.List;
 public class SportsHall implements IEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
@@ -24,10 +24,10 @@ public class SportsHall implements IEntity {
     @OneToMany(mappedBy = "sportsHall", fetch = FetchType.LAZY)
     private List<Team> teamList;
 
-    @OneToMany(mappedBy = "sportsHall", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "sportsHall",fetch = FetchType.LAZY)
     private List<Inventory> inventoryList;
 
-    @ManyToMany(mappedBy = "sportsHalls", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Announcement> announcements;
 
 
