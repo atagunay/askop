@@ -4,8 +4,10 @@ import com.ifa.askop.core.entity.IEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,7 +21,11 @@ public class Assignment implements IEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @DateTimeFormat(pattern = "gg.MM.YYYY")
+    @NotNull
     private LocalDateTime date;
+
+    @NotNull
     private boolean isCome;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

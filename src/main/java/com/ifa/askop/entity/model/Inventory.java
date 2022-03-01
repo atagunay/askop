@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "inventories")
@@ -18,7 +21,12 @@ public class Inventory implements IEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
+    @NotBlank
+    @Min(2)
     private String name;
+
+    @NotNull
     private int quantityPerUnity;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
