@@ -6,6 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -19,13 +23,29 @@ public class Parent implements IEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
+    @NotBlank
+    @Min(2)
     private String p1Name;
+
+    @NotNull
+    @NotBlank
+    @Min(2)
     private String p1Tel;
+
+    @NotNull
+    @NotBlank
+    @Email
     private String p1Email;
+
+    @NotNull
+    @NotBlank
     private String p1Job;
 
     private String p2Name;
     private String p2Tel;
+
+    @Email
     private String p2Email;
     private String p2Job;
 

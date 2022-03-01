@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
-@PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "id")
+@PrimaryKeyJoinColumn(name = "user_base_id", referencedColumnName = "id")
 public class User extends UserBase {
 
     @NotNull
@@ -52,6 +52,7 @@ public class User extends UserBase {
     private String gender;
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
+    @NotNull
     private LocalDateTime dob;
 
 
