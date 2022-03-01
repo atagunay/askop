@@ -1,6 +1,5 @@
 package com.ifa.askop.entity.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ifa.askop.core.entity.UserBase;
 import lombok.AllArgsConstructor;
 import lombok.Data;
