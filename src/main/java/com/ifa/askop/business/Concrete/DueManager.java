@@ -1,6 +1,7 @@
 package com.ifa.askop.business.Concrete;
 
 import com.ifa.askop.business.Abstract.IDueService;
+import com.ifa.askop.business.utilities.Messages;
 import com.ifa.askop.core.utilities.results.DataResult;
 import com.ifa.askop.core.utilities.results.IResult;
 import com.ifa.askop.core.utilities.results.SuccessDataResult;
@@ -20,29 +21,29 @@ public class DueManager implements IDueService {
 
     @Override
     public DataResult<List<Due>> getAll() {
-        return new SuccessDataResult<List<Due>>(dueRepository.findAll());
+        return new SuccessDataResult<List<Due>>(dueRepository.findAll(), Messages.Listed);
     }
 
     @Override
     public IResult add(Due due) {
         dueRepository.save(due);
-        return new SuccessResult("Due added");
+        return new SuccessResult(Messages.Added);
     }
 
     @Override
     public IResult update(Due due) {
-       dueRepository.save(due);
-       return new SuccessResult("Due updated");
+        dueRepository.save(due);
+        return new SuccessResult(Messages.Updated);
     }
 
     @Override
     public IResult delete(Due due) {
         dueRepository.delete(due);
-        return new SuccessResult("Due deleted");
+        return new SuccessResult(Messages.Deleted);
     }
 
     @Override
     public DataResult<Due> getById(Integer id) {
-        return new SuccessDataResult<Due>(dueRepository.getById(id));
+        return new SuccessDataResult<Due>(dueRepository.getById(id), Messages.Listed);
     }
 }
