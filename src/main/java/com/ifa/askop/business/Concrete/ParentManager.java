@@ -1,6 +1,7 @@
 package com.ifa.askop.business.Concrete;
 
 import com.ifa.askop.business.Abstract.IParentService;
+import com.ifa.askop.business.utilities.Messages;
 import com.ifa.askop.core.utilities.results.DataResult;
 import com.ifa.askop.core.utilities.results.IResult;
 import com.ifa.askop.core.utilities.results.SuccessDataResult;
@@ -20,31 +21,31 @@ public class ParentManager implements IParentService {
 
     @Override
     public DataResult<List<Parent>> getAll() {
-        return new SuccessDataResult<>(parentRepository.findAll());
+        return new SuccessDataResult<>(parentRepository.findAll(), Messages.Listed);
     }
 
     @Override
     public IResult add(Parent parent) {
         parentRepository.save(parent);
-        return new SuccessResult("added");
+        return new SuccessResult(Messages.Added);
     }
 
     @Override
     public IResult update(Parent parent) {
         parentRepository.save(parent);
-        return new SuccessResult("updated");
+        return new SuccessResult(Messages.Updated);
     }
 
     @Override
     public IResult delete(Parent parent) {
         parentRepository.delete(parent);
-        return new SuccessResult("deleted");
+        return new SuccessResult(Messages.Deleted);
     }
 
     @Override
     public DataResult<Parent> getById(Integer id) {
 
-        return new SuccessDataResult<Parent>(parentRepository.getById(id));
+        return new SuccessDataResult<Parent>(parentRepository.getById(id), Messages.Listed);
 
     }
 }
