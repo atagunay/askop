@@ -13,9 +13,9 @@ public interface IBaseController <T extends IEntity>{
 
     public ResponseEntity<DataResult<List<T>>> getAll();
 
-    public ResponseEntity<DataResult<T>> getbyId(int playerId);
+    public ResponseEntity<DataResult<T>> getById(int id);
 
-    public ResponseEntity<IResult> updatePlayer(T player);
+    public ResponseEntity<IResult> updateEntity(T entity);
 
-    public ResponseEntity<IResult> deletePlayer(T player);
+    public ResponseEntity<IResult> deleteEntity(T entity);
 }

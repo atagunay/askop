@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public class BaseController<T extends IEntity> implements IBaseController<T> {
+public class BaseController<T extends IEntity, S extends IServiceBase<T>> implements IBaseController<T> {
 
     private final IServiceBase<T> serviceBase;
 
-    public BaseController(IServiceBase<T> serviceBase) {
+    public BaseController(S serviceBase) {
         this.serviceBase = serviceBase;
     }
 
@@ -26,19 +26,19 @@ public class BaseController<T extends IEntity> implements IBaseController<T> {
 
     @Override
     @GetMapping("/getById")
-    public ResponseEntity<DataResult<T>> getbyId(@RequestParam int playerId) {
-        return ResponseEntity.ok(serviceBase.getById(playerId));
+    public ResponseEntity<DataResult<T>> getById(@RequestParam int id) {
+        return ResponseEntity.ok(serviceBase.getById(id));
     }
 
     @Override
     @PutMapping("/update")
-    public ResponseEntity<IResult> updatePlayer(@RequestBody T player) {
-        return ResponseEntity.ok(serviceBase.update(player));
+    public ResponseEntity<IResult> updateEntity(@RequestBody T entity) {
+        return ResponseEntity.ok(serviceBase.update(entity));
     }
 
     @Override
     @DeleteMapping("/delete")
-    public ResponseEntity<IResult> deletePlayer(@RequestBody T player) {
-        return ResponseEntity.ok(serviceBase.delete(player));
+    public ResponseEntity<IResult> deleteEntity(@RequestBody T entity) {
+        return ResponseEntity.ok(serviceBase.delete(entity));
     }
 }
