@@ -1,5 +1,6 @@
 package com.ifa.askop.entity.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ifa.askop.core.entity.IEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "players"})
 public class Due implements IEntity {
 
     @Id

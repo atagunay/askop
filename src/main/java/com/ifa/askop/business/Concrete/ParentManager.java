@@ -37,8 +37,8 @@ public class ParentManager implements IParentService {
     }
 
     @Override
-    public IResult delete(Parent parent) {
-        parentRepository.delete(parent);
+    public IResult delete(int id) {
+        parentRepository.deleteById(id);
         return new SuccessResult(Messages.Deleted);
     }
 

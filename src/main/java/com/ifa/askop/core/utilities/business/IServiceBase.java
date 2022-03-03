@@ -13,7 +13,7 @@ public interface IServiceBase<T extends IEntity> {
 
     IResult update(T t);
 
-    IResult delete(T t);
+    IResult delete(int id);
 
     DataResult<T> getById(Integer id);
 
