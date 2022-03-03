@@ -37,8 +37,8 @@ public class DueManager implements IDueService {
     }
 
     @Override
-    public IResult delete(int id) {
-        dueRepository.deleteById(id);
+    public IResult delete(Due due) {
+        dueRepository.delete(due);
         return new SuccessResult(Messages.Deleted);
     }
 

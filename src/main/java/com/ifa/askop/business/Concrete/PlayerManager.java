@@ -37,8 +37,8 @@ public class PlayerManager implements IPlayerService {
     }
 
     @Override
-    public IResult delete(int id) {
-        playerRepository.deleteById(id);
+    public IResult delete(Player player) {
+        playerRepository.delete(player);
         return new SuccessResult(Messages.Deleted);
     }
 
