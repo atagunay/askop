@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface IBaseController <T extends IEntity>{
 
+    public ResponseEntity<IResult> addEntity (T entity);
+
     public ResponseEntity<DataResult<List<T>>> getAll();
 
     public ResponseEntity<DataResult<T>> getById(int id);
