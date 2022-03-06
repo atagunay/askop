@@ -1,11 +1,9 @@
-package com.ifa.askop.core.utilities.controller;
+package com.ifa.askop.core.controller;
 
 import com.ifa.askop.core.entity.IEntity;
 import com.ifa.askop.core.utilities.results.DataResult;
 import com.ifa.askop.core.utilities.results.IResult;
-import com.ifa.askop.entity.model.Player;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 

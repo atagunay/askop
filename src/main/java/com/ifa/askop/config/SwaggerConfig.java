@@ -14,7 +14,7 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("ifa.askop"))
-                .paths(PathSelectors.regex("/api.*")).build();
+                .apis(RequestHandlerSelectors.basePackage("com.ifa"))
+                .paths(PathSelectors.regex("/v1/.*")).build();
     }
 }

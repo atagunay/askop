@@ -1,4 +1,4 @@
-package com.ifa.askop.core.utilities.business;
+package com.ifa.askop.core.business;
 
 import com.ifa.askop.core.entity.IEntity;
 import com.ifa.askop.core.utilities.results.DataResult;
