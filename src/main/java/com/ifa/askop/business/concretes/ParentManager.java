@@ -1,6 +1,6 @@
-package com.ifa.askop.business.Concrete;
+package com.ifa.askop.business.concretes;
 
-import com.ifa.askop.business.Abstract.IParentService;
+import com.ifa.askop.business.abstracts.IParentService;
 import com.ifa.askop.business.utilities.Messages;
 import com.ifa.askop.core.utilities.results.DataResult;
 import com.ifa.askop.core.utilities.results.IResult;
@@ -45,7 +45,7 @@ public class ParentManager implements IParentService {
     @Override
     public DataResult<Parent> getById(Integer id) {
 
-        return new SuccessDataResult<Parent>(parentRepository.getById(id), Messages.Listed);
+        return new SuccessDataResult<>(parentRepository.getById(id), Messages.Listed);
 
     }
 }

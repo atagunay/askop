@@ -1,6 +1,6 @@
-package com.ifa.askop.business.Concrete;
+package com.ifa.askop.business.concretes;
 
-import com.ifa.askop.business.Abstract.IPlayerService;
+import com.ifa.askop.business.abstracts.IPlayerService;
 import com.ifa.askop.business.utilities.Messages;
 import com.ifa.askop.core.utilities.results.DataResult;
 import com.ifa.askop.core.utilities.results.IResult;
@@ -21,7 +21,7 @@ public class PlayerManager implements IPlayerService {
 
     @Override
     public DataResult<List<Player>> getAll() {
-        return new SuccessDataResult<List<Player>>(playerRepository.findAll(), Messages.Listed);
+        return new SuccessDataResult<>(playerRepository.findAll(), Messages.Listed);
     }
 
     @Override
@@ -44,6 +44,6 @@ public class PlayerManager implements IPlayerService {
 
     @Override
     public DataResult<Player> getById(Integer id) {
-        return new SuccessDataResult<Player>(playerRepository.getById(id), Messages.Listed);
+        return new SuccessDataResult<>(playerRepository.getById(id), Messages.Listed);
     }
 }

@@ -23,7 +23,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
             HttpStatus status,
             WebRequest request) {
 
-        List<String> errors = new ArrayList<String>();
+        List<String> errors = new ArrayList<>();
 
         for (FieldError error : exception.getBindingResult().getFieldErrors()) {
             errors.add(error.getField() + ": " + error.getDefaultMessage());
@@ -34,6 +34,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
         ApiErrorModel apiError =
                 new ApiErrorModel(HttpStatus.BAD_REQUEST, errors);
-        return new ResponseEntity(apiError, apiError.getStatus());
+        return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 }

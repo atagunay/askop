@@ -1,6 +1,6 @@
-package com.ifa.askop.business.Concrete;
+package com.ifa.askop.business.concretes;
 
-import com.ifa.askop.business.Abstract.IDueService;
+import com.ifa.askop.business.abstracts.IDueService;
 import com.ifa.askop.business.utilities.Messages;
 import com.ifa.askop.core.utilities.results.DataResult;
 import com.ifa.askop.core.utilities.results.IResult;
@@ -21,7 +21,7 @@ public class DueManager implements IDueService {
 
     @Override
     public DataResult<List<Due>> getAll() {
-        return new SuccessDataResult<List<Due>>(dueRepository.findAll(), Messages.Listed);
+        return new SuccessDataResult<>(dueRepository.findAll(), Messages.Listed);
     }
 
     @Override
@@ -44,6 +44,6 @@ public class DueManager implements IDueService {
 
     @Override
     public DataResult<Due> getById(Integer id) {
-        return new SuccessDataResult<Due>(dueRepository.getById(id), Messages.Listed);
+        return new SuccessDataResult<>(dueRepository.getById(id), Messages.Listed);
     }
 }

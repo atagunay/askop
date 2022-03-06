@@ -24,10 +24,10 @@ public class BaseController<T extends IEntity, S extends IServiceBase<T>> implem
     public ResponseEntity<DataResult<List<T>>> getAll() {
         var result = serviceBase.getAll();
         if(result.isSuccess()){
-            return new ResponseEntity<DataResult<List<T>>>(result,HttpStatus.OK);
+            return new ResponseEntity<>(result,HttpStatus.OK);
         }
 
-        return new ResponseEntity<DataResult<List<T>>>(new ErrorDataResult(result.getMessage()),
+        return new ResponseEntity<>(new ErrorDataResult<>(result.getMessage()),
         HttpStatus.BAD_REQUEST);
 
     }
@@ -37,10 +37,10 @@ public class BaseController<T extends IEntity, S extends IServiceBase<T>> implem
     public ResponseEntity<DataResult<T>> getById(@RequestParam int id) {
         var result = serviceBase.getById(id);
         if(result.isSuccess()){
-            return new ResponseEntity<DataResult<T>>(result,HttpStatus.OK);
+            return new ResponseEntity<>(result,HttpStatus.OK);
         }
 
-        return new ResponseEntity<DataResult<T>>(new ErrorDataResult(result.getMessage()),
+        return new ResponseEntity<>(new ErrorDataResult<>(result.getMessage()),
                 HttpStatus.BAD_REQUEST);
 
     }
@@ -50,10 +50,10 @@ public class BaseController<T extends IEntity, S extends IServiceBase<T>> implem
     public ResponseEntity<IResult> updateEntity(@RequestBody @Valid T entity) {
         var result = serviceBase.update(entity);
         if(result.isSuccess()){
-            return new ResponseEntity<IResult>(result,HttpStatus.OK);
+            return new ResponseEntity<>(result,HttpStatus.OK);
         }
 
-        return new ResponseEntity<IResult>(new ErrorDataResult(result.getMessage()),
+        return new ResponseEntity<>(new ErrorDataResult<>(result.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 
@@ -62,10 +62,10 @@ public class BaseController<T extends IEntity, S extends IServiceBase<T>> implem
     public ResponseEntity<IResult> deleteEntity(@RequestBody T entity) {
         var result = serviceBase.delete(entity);
         if(result.isSuccess()){
-            return new ResponseEntity<IResult>(result,HttpStatus.OK);
+            return new ResponseEntity<>(result,HttpStatus.OK);
         }
 
-        return new ResponseEntity<IResult>(new ErrorDataResult(result.getMessage()),
+        return new ResponseEntity<>(new ErrorDataResult<>(result.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 
@@ -74,10 +74,10 @@ public class BaseController<T extends IEntity, S extends IServiceBase<T>> implem
     public ResponseEntity<IResult> addEntity(@RequestBody @Valid T entity) {
         var result = serviceBase.add(entity);
         if(result.isSuccess()){
-            return new ResponseEntity<IResult>(result,HttpStatus.OK);
+            return new ResponseEntity<>(result,HttpStatus.OK);
         }
 
-        return new ResponseEntity<IResult>(new ErrorDataResult(result.getMessage()),
+        return new ResponseEntity<>(new ErrorDataResult<>(result.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 }

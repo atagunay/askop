@@ -1,6 +1,6 @@
 package com.ifa.askop.controller;
 
-import com.ifa.askop.business.Abstract.IPlayerService;
+import com.ifa.askop.business.abstracts.IPlayerService;
 import com.ifa.askop.core.controller.BaseController;
 import com.ifa.askop.entity.model.Player;
 import org.springframework.web.bind.annotation.*;

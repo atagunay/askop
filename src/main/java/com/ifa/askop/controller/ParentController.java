@@ -1,6 +1,6 @@
 package com.ifa.askop.controller;
 
-import com.ifa.askop.business.Concrete.ParentManager;
+import com.ifa.askop.business.concretes.ParentManager;
 import com.ifa.askop.core.controller.BaseController;
 import com.ifa.askop.entity.model.Parent;
 import org.springframework.web.bind.annotation.RequestMapping;

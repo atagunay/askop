@@ -9,13 +9,13 @@ import java.util.List;
 
 public interface IBaseController <T extends IEntity>{
 
-    public ResponseEntity<IResult> addEntity (T entity);
+     ResponseEntity<IResult> addEntity (T entity);
 
-    public ResponseEntity<DataResult<List<T>>> getAll();
+     ResponseEntity<DataResult<List<T>>> getAll();
 
-    public ResponseEntity<DataResult<T>> getById(int id);
+     ResponseEntity<DataResult<T>> getById(int id);
 
-    public ResponseEntity<IResult> updateEntity(T entity);
+     ResponseEntity<IResult> updateEntity(T entity);
 
-    public ResponseEntity<IResult> deleteEntity(T entity);
+     ResponseEntity<IResult> deleteEntity(T entity);
 }
