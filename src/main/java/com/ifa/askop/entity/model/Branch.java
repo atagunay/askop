@@ -6,9 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -24,7 +24,7 @@ public class Branch implements IEntity {
 
     @NotNull
     @NotBlank
-    @Min(2)
+    @Size(min = 2)
     private String name;
 
     @OneToMany(mappedBy = "branch", fetch = FetchType.LAZY)

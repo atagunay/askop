@@ -9,9 +9,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 
@@ -25,12 +25,12 @@ public class User extends UserBase {
 
     @NotNull
     @NotBlank
-    @Min(2)
+    @Size(min = 2)
     private String name;
 
     @NotNull
     @NotBlank
-    @Min(2)
+    @Size(min = 2)
     private String surname;
 
     @NotNull

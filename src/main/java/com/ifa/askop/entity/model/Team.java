@@ -3,12 +3,11 @@ package com.ifa.askop.entity.model;
 import com.ifa.askop.core.entity.IEntity;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -23,7 +22,7 @@ public class Team implements IEntity {
 
     @NotNull
     @NotBlank()
-    @Min(2)
+    @Size(min = 2)
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

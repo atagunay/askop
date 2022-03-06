@@ -10,10 +10,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,12 +28,12 @@ public class Player implements IEntity {
 
     @NotNull
     @NotBlank
-    @Min(2)
+    @Size(min = 2)
     private String name;
 
     @NotNull
     @NotBlank
-    @Min(2)
+    @Size(min = 2)
     private String surname;
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
@@ -45,7 +42,7 @@ public class Player implements IEntity {
 
     @NotNull
     @NotBlank
-    @Pattern(regexp="^[0-9]{10}[02468]{1}$",message="please enter valid id number")
+    @Pattern(regexp="^[0-9]{10}[02468]{1}$",message="lütfen geçerli bir nationality Id girin")
     private String nationalityId;
 
     @NotNull
