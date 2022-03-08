@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-public class BaseController<T extends IEntity, S extends IServiceBase<T>> implements IBaseController<T> {
+public class  BaseController<T extends IEntity, S extends IServiceBase<T>> implements IBaseController<T> {
 
     private final IServiceBase<T> serviceBase;
 
